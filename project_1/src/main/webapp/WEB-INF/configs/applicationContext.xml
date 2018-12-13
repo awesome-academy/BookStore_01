@@ -2,13 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <mvc:resources mapping="/admin/assets/**" location="/admin/assets/"/>
     <mvc:resources mapping="/client/assets/**" location="/client/assets/"/>
@@ -38,6 +38,7 @@
                 <value>classpath:messages</value>
                 <value>classpath:google-security</value>
                 <value>classpath:mail</value>
+                <value>classpath:cloud</value>
             </list>
         </property>
         <property name="defaultEncoding" value="UTF-8"/>
@@ -76,5 +77,7 @@
     <bean id="cartSchedule" class="app.schedule.CartSchedule"/>
 
     <bean id="datetimeUtils" class="app.utils.DatetimeUtils"/>
+
+    <bean id="cloudinaryUtils" class="app.utils.CloudinaryUtils"/>
 
 </beans>
