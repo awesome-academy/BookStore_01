@@ -9,12 +9,13 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://cloudinary.com/jsp/taglib" prefix="cl" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 
 
 <!-- slider-area-start -->
 <div class="slider-area mt-30">
     <div class="container">
-
         <div class="slider-active owl-carousel">
             <c:forEach items="${panels}" var="b">
             <div class="single-slider pt-100 pb-145 bg-img"
@@ -55,7 +56,8 @@
                     <div class="product-wrapper">
                         <div class="product-img">
                             <a href="#">
-                                <img src="/img-book/${b.avatar}" alt="book" class="primary"/>
+                                <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                <img src="${imageBook[0]}"  width="335" height="449" alt="banner"/>
                             </a>
                             <div class="quick-view">
                                 <a class="action-view" href="#" bId="${b.id}" data-target="#productModal"
@@ -136,7 +138,10 @@
                                 <p>${b.description}</p>
                             </div>
                             <div class="banner-img-3">
-                                <a href="#"><img src="/img-book/${b.avatar}" alt="banner"/></a>
+                                <a href="#">
+                                    <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                    <img src="${imageBook[0]}"  width="335" height="449" alt="banner"/>
+                                </a>
                             </div>
                         </div>
                     </c:forEach>
@@ -148,7 +153,8 @@
                         <div class="bestseller-total">
                             <div class="single-bestseller mb-25">
                                 <div class="bestseller-img">
-                                    <a href="#"><img src="/img-book/${b.avatar}" alt="book"/></a>
+                                    <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                    <a href="#"><img src="${imageBook[0]}"  width="335" height="449" alt="book"/></a>
                                 </div>
                                 <div class="bestseller-text text-center">
                                     <h3><a href="#">${b.title}</a></h3>
@@ -161,7 +167,8 @@
                             </div>
                             <div class="single-bestseller">
                                 <div class="bestseller-img">
-                                    <a href="#"><img src="/img-book/${bestSale[i.index + 1].avatar}" alt="book"/></a>
+                                    <c:set var = "imageBook" value = "${fn:split(bestSale[i.index + 1].avatar, '#')}" />
+                                    <a href="#"><img src="${imageBook[0]}"  width="335" height="449" alt="book"/></a>
                                 </div>
                                 <div class="bestseller-text text-center">
                                     <h3><a href="#">${bestSale[i.index + 1].title}</a></h3>
@@ -212,7 +219,8 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="#">
-                                        <img src="/img-book/${b.avatar}" alt="book" class="primary"/>
+                                        <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                        <img src="${imageBook[0]}"  width="335" height="449" alt="book" class="primary"/>
                                     </a>
                                     <div class="quick-view">
                                         <a class="action-view" bId="${b.id}" href="#" data-target="#productModal"
@@ -263,7 +271,8 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="#">
-                                        <img src="/img-book/${b.avatar}" alt="book" class="primary"/>
+                                        <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                        <img src="${imageBook[0]}"  width="335" height="449" alt="book" class="primary"/>
                                     </a>
                                     <div class="quick-view">
                                         <a class="action-view" bId="${b.id}" href="#" data-target="#productModal"
@@ -315,7 +324,8 @@
                             <div class="product-wrapper">
                                 <div class="product-img">
                                     <a href="#">
-                                        <img src="/img-book/${b.avatar}" alt="book" class="primary"/>
+                                        <c:set var = "imageBook" value = "${fn:split(b.avatar, '#')}" />
+                                        <img src="${imageBook[0]}" width="335" height="449" alt="book" class="primary"/>
                                     </a>
                                     <div class="quick-view">
                                         <a class="action-view" bId="${b.id}" href="#" data-target="#productModal"
@@ -331,15 +341,6 @@
                                     </div>
                                 </div>
                                 <div class="product-details text-center">
-                                    <div class="product-rating">
-                                        <ul>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                            <li><a href="#"><i class="fa fa-star"></i></a></li>
-                                        </ul>
-                                    </div>
                                     <h4><a href="#">${b.title}</a></h4>
                                     <div class="product-price">
                                         <ul>
